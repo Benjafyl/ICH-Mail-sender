@@ -8,9 +8,14 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "vercel:whoami": "npx vercel whoami",
+    "vercel:pull": "npx vercel pull --yes",
+    "vercel:deploy": "npx vercel deploy",
+    "vercel:deploy:prod": "npx vercel deploy --prod",
     "db:run": "node --env-file=.env.local scripts/run-sql.mjs",
     "db:migrate": "node --env-file=.env.local scripts/run-sql.mjs supabase/migrations/20260330190000_init.sql",
-    "db:seed": "node --env-file=.env.local scripts/run-sql.mjs supabase/seed.sql"
+    "db:seed": "node --env-file=.env.local scripts/run-sql.mjs supabase/seed.sql",
+    "supabase:db:push": "node --env-file=.env.local scripts/supabase-db-push.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.0",
