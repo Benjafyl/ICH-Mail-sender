@@ -74,6 +74,7 @@ Required:
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+DATABASE_URL=your-postgres-connection-string
 ```
 
 If Supabase env vars are not configured, the app still compiles and shows setup alerts plus empty states.
@@ -110,6 +111,12 @@ You can run it with the Supabase CLI if your project is linked:
 supabase db push
 ```
 
+Or run the migration directly from this repo:
+
+```bash
+npm run db:migrate
+```
+
 Or apply the SQL manually in the Supabase SQL editor.
 
 ## Seed Data
@@ -124,6 +131,12 @@ If using the Supabase CLI:
 
 ```bash
 supabase db reset
+```
+
+Or run the seed directly from this repo:
+
+```bash
+npm run db:seed
 ```
 
 Or run `supabase/seed.sql` manually after the migration.

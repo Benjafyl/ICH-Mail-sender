@@ -64,7 +64,7 @@ insert into lead_analysis (
 )
 select
   id,
-  'maintenance',
+  'maintenance'::recommended_service,
   0.82,
   'Operación establecida con continuidad operacional crítica y necesidad probable de mantención periódica.',
   array['operación continua', 'alto flujo de clientes', 'equipos HVAC críticos']
@@ -73,7 +73,7 @@ where business_name = 'Clínica Bosque Norte'
 union all
 select
   id,
-  'installation',
+  'installation'::recommended_service,
   0.71,
   'Negocio en expansión en Reñaca, con señales de apertura y necesidad de habilitar climatización comercial.',
   array['expansión reciente', 'local gastronómico', 'probable nueva habilitación']
@@ -82,7 +82,7 @@ where business_name = 'Café Mar de Viña'
 union all
 select
   id,
-  'replacement',
+  'replacement'::recommended_service,
   0.76,
   'Se observan señales de renovación pendiente y foco en eficiencia energética para espacios de atención.',
   array['equipos antiguos', 'operación retail', 'optimización de costos']
@@ -100,7 +100,7 @@ select
   id,
   'Interchile Clima | Continuidad operativa para Clínica Bosque Norte',
   'Hola equipo de Clínica Bosque Norte,\n\nVemos una oportunidad para apoyar su operación con un plan de mantención HVAC preventivo y una revisión técnica focalizada.\n\nSi les parece, coordinamos una breve conversación para levantar el contexto actual y proponer una mejora concreta.\n\nSaludos,\nBenjamín\nInterchile Clima',
-  'approved',
+  'approved'::email_draft_status,
   timezone('utc', now()) - interval '1 day'
 from leads
 where business_name = 'Clínica Bosque Norte'
@@ -109,7 +109,7 @@ select
   id,
   'Interchile Clima | Evaluación inicial para Hotel Santa Lucía Centro',
   'Hola equipo de Hotel Santa Lucía Centro,\n\nNos gustaría proponer una evaluación técnica breve de su sistema de climatización para detectar oportunidades de mejora y continuidad operacional.\n\nQuedo atento si les hace sentido revisar esto.\n\nSaludos,\nBenjamín\nInterchile Clima',
-  'draft',
+  'draft'::email_draft_status,
   null
 from leads
 where business_name = 'Hotel Santa Lucía Centro'
@@ -118,7 +118,7 @@ select
   id,
   'Interchile Clima | Instalación para Café Mar de Viña',
   'Hola equipo de Café Mar de Viña,\n\nVemos una oportunidad para apoyar su nueva operación con una propuesta de instalación de climatización comercial y una evaluación técnica inicial.\n\nSi quieren, coordinamos una llamada breve esta semana.\n\nSaludos,\nBenjamín\nInterchile Clima',
-  'sent',
+  'sent'::email_draft_status,
   timezone('utc', now()) - interval '2 day'
 from leads
 where business_name = 'Café Mar de Viña';
