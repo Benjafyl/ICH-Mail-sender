@@ -18,19 +18,15 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-full max-w-xs border-r border-white/60 bg-[#163029] px-5 py-6 text-white">
+    <aside className="w-full max-w-xs border-r border-[var(--sidebar-border)] bg-[var(--sidebar-bg)] px-5 py-6 text-white shadow-[12px_0_32px_rgba(16,40,63,0.14)]">
       <div className="space-y-8">
         <div className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--sidebar-muted)]">
             Interchile Clima
           </p>
           <div>
-            <h1 className="text-xl font-semibold tracking-tight">
-              Prospecting Panel
-            </h1>
-            <p className="text-sm text-white/72">
-              Operación comercial interna
-            </p>
+            <h1 className="text-xl font-semibold tracking-tight">Panel comercial</h1>
+            <p className="text-sm text-[var(--sidebar-muted)]">Operación interna</p>
           </div>
         </div>
 
@@ -46,8 +42,8 @@ export function Sidebar() {
                 className={cn(
                   "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors",
                   isActive
-                    ? "bg-white/14 text-white"
-                    : "text-white/72 hover:bg-white/8 hover:text-white",
+                    ? "bg-[var(--sidebar-surface)] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+                    : "text-[var(--sidebar-muted)] hover:bg-[var(--sidebar-hover)] hover:text-white",
                 )}
                 href={item.href}
               >

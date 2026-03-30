@@ -1,18 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #eff3f0;
-  --foreground: #14211d;
+  --background: #edf3f9;
+  --foreground: #12263a;
   --surface: #ffffff;
-  --surface-muted: #f6f8f7;
-  --border: #d5ddd8;
-  --border-strong: #bcc8c1;
-  --accent: #315f56;
-  --accent-soft: #dde9e6;
-  --danger-soft: #f6dfdb;
-  --warning-soft: #f3ead3;
-  --success-soft: #dbeadf;
-  --muted: #60706b;
+  --surface-muted: #f4f8fc;
+  --border: #d6e0ea;
+  --border-strong: #acc0d3;
+  --accent: #1d6db4;
+  --accent-strong: #14548d;
+  --accent-soft: #dbeaf8;
+  --sidebar-bg: #10283f;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-surface: rgba(255, 255, 255, 0.12);
+  --sidebar-hover: rgba(255, 255, 255, 0.08);
+  --sidebar-muted: rgba(227, 237, 248, 0.74);
+  --danger: #b04455;
+  --danger-strong: #943647;
+  --danger-soft: #f8e7eb;
+  --danger-text: #8c3143;
+  --warning-soft: #f7efd7;
+  --warning-text: #7b5d1a;
+  --success-soft: #e3eef8;
+  --success-text: #2d5f91;
+  --muted: #5f7186;
 }
 
 @theme inline {
@@ -23,7 +34,9 @@
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
   --color-warning-soft: var(--warning-soft);
   --color-success-soft: var(--success-soft);
@@ -38,8 +51,8 @@
 
 html {
   background:
-    radial-gradient(circle at top left, rgba(49, 95, 86, 0.09), transparent 32%),
-    linear-gradient(180deg, #f4f7f5 0%, #eef2ef 100%);
+    radial-gradient(circle at top left, rgba(29, 109, 180, 0.12), transparent 32%),
+    linear-gradient(180deg, #f7fbff 0%, #ecf3f9 100%);
 }
 
 body {
@@ -61,13 +74,14 @@ button {
 }
 
 ::selection {
-  background: rgba(49, 95, 86, 0.16);
+  background: rgba(29, 109, 180, 0.18);
 }
 
 .app-shell {
   background:
-    radial-gradient(circle at top right, rgba(49, 95, 86, 0.12), transparent 22%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+    radial-gradient(circle at top right, rgba(29, 109, 180, 0.14), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(16, 40, 63, 0.06), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0));
 }
 
 .panel-surface {

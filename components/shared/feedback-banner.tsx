@@ -17,8 +17,8 @@ export function FeedbackBanner({ tone, message }: FeedbackBannerProps) {
     <Card
       className={
         isSuccess
-          ? "border border-[rgba(47,101,64,0.18)] bg-success-soft/70 p-4"
-          : "border border-[rgba(122,60,50,0.18)] bg-danger-soft/70 p-4"
+          ? "border border-[rgba(45,95,145,0.16)] bg-success-soft p-4"
+          : "border border-[rgba(140,49,67,0.16)] bg-danger-soft p-4"
       }
     >
       <div className="space-y-1">
@@ -29,7 +29,9 @@ export function FeedbackBanner({ tone, message }: FeedbackBannerProps) {
         </div>
         <p
           className={
-            isSuccess ? "text-sm text-[#2f6540]" : "text-sm text-[#7a3c32]"
+            isSuccess
+              ? "text-sm text-[var(--success-text)]"
+              : "text-sm text-[var(--danger-text)]"
           }
         >
           {message}

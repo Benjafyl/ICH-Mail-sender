@@ -94,7 +94,7 @@ export default async function LeadDetailPage({
               <ServiceBadge service={lead.analysis.recommended_service} />
             ) : null}
             {lead.isOptedOut ? (
-              <span className="rounded-full bg-danger-soft px-3 py-1 text-xs font-medium text-[#7a3c32]">
+              <span className="rounded-full bg-danger-soft px-3 py-1 text-xs font-medium text-[var(--danger-text)]">
                 Opt-out activo
               </span>
             ) : null}

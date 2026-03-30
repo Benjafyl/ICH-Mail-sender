@@ -8,15 +8,15 @@ export function SetupAlert() {
   }
 
   return (
-    <Card className="border border-[rgba(112,87,43,0.18)] bg-warning-soft/70 p-4">
+    <Card className="border border-[rgba(123,93,26,0.16)] bg-warning-soft p-4">
       <div className="space-y-1">
         <div className="flex items-center gap-2">
           <Badge variant="warning">Setup required</Badge>
-          <span className="text-sm font-medium text-[#70572b]">
+          <span className="text-sm font-medium text-[var(--warning-text)]">
             Supabase no está configurado todavía.
           </span>
         </div>
-        <p className="text-sm text-[#70572b]">
+        <p className="text-sm text-[var(--warning-text)]">
           La UI ya está lista, pero necesitas definir
           {" "}
           <code>NEXT_PUBLIC_SUPABASE_URL</code>

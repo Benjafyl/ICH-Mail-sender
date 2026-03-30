@@ -4,13 +4,13 @@ import { cn } from "@/lib/utils";
 
 const variants = {
   primary:
-    "bg-accent text-white shadow-sm hover:bg-[#284f47] border border-transparent",
+    "border border-transparent bg-accent text-white shadow-sm hover:bg-accent-strong",
   secondary:
-    "bg-surface text-foreground border border-border hover:border-border-strong hover:bg-surface-muted",
+    "border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-muted",
   ghost:
-    "bg-transparent text-foreground hover:bg-accent-soft/70 border border-transparent",
+    "border border-transparent bg-transparent text-accent-strong hover:bg-accent-soft",
   danger:
-    "bg-[#8b4031] text-white border border-transparent hover:bg-[#763629]",
+    "border border-transparent bg-danger text-white hover:bg-[var(--danger-strong)]",
 };
 
 const sizes = {
@@ -30,7 +30,7 @@ export function buttonVariants({
   size = "md",
 }: Pick<ButtonProps, "className" | "variant" | "size">) {
   return cn(
-    "inline-flex items-center justify-center rounded-xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 disabled:pointer-events-none disabled:opacity-60",
+    "inline-flex items-center justify-center rounded-xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/25 disabled:pointer-events-none disabled:opacity-60",
     variants[variant],
     sizes[size],
     className,
