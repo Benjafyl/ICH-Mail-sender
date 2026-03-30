@@ -40,10 +40,7 @@ export default async function DraftDetailPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Editar draft"
-        description="Ajusta contenido y estado antes de registrar el envío."
-      />
+      <PageHeader title="Editar draft" />
 
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />

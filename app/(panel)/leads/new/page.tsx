@@ -19,10 +19,7 @@ export default async function NewLeadPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Nuevo lead"
-        description="Ingreso manual de un negocio potencial para iniciar el flujo comercial del MVP."
-      />
+      <PageHeader title="Nuevo lead" />
 
       <FeedbackBanner tone="error" message={error} />
 

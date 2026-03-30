@@ -30,20 +30,14 @@ export default async function DraftsPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Drafts"
-        description="Revisión editorial y comercial de borradores asociados a cada lead."
-      />
+      <PageHeader title="Drafts" />
 
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />
 
       <Card className="p-5">
         {drafts.length === 0 ? (
-          <EmptyState
-            title="No hay drafts"
-            description="Genera o crea drafts desde el detalle de un lead para empezar la revisión."
-          />
+          <EmptyState title="Sin drafts" />
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full text-left text-sm">

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { MetricCard } from "@/components/dashboard/metric-card";
 import { EmptyState } from "@/components/shared/empty-state";
 import { PageHeader } from "@/components/shared/page-header";
-import { SetupAlert } from "@/components/shared/setup-alert";
 import {
   DraftStatusBadge,
   WorkflowBadge,
@@ -20,44 +19,17 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <PageHeader
         title="Dashboard"
-        description="Vista general del flujo comercial del MVP, basada en datos reales de Supabase cuando la configuración está disponible."
         actionHref="/leads/new"
         actionLabel="Nuevo lead"
       />
 
-      <SetupAlert />
-
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <MetricCard
-          label="Total leads"
-          value={metrics.totalLeads}
-          hint="Base actual de negocios potenciales."
-        />
-        <MetricCard
-          label="Pendientes de análisis"
-          value={metrics.pendingAnalysis}
-          hint="Leads sin análisis comercial cargado."
-        />
-        <MetricCard
-          label="Drafts pendientes"
-          value={metrics.draftsPending}
-          hint="Leads con draft activo por revisar o re-trabajar."
-        />
-        <MetricCard
-          label="Aprobados"
-          value={metrics.approved}
-          hint="Leads listos para registrar envío."
-        />
-        <MetricCard
-          label="Enviados"
-          value={metrics.sent}
-          hint="Leads que ya tienen un envío registrado."
-        />
-        <MetricCard
-          label="Opt-outs"
-          value={metrics.optOuts}
-          hint="Correos bloqueados para futuros contactos."
-        />
+        <MetricCard label="Total leads" value={metrics.totalLeads} />
+        <MetricCard label="Pendientes de análisis" value={metrics.pendingAnalysis} />
+        <MetricCard label="Drafts pendientes" value={metrics.draftsPending} />
+        <MetricCard label="Aprobados" value={metrics.approved} />
+        <MetricCard label="Enviados" value={metrics.sent} />
+        <MetricCard label="Opt-outs" value={metrics.optOuts} />
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[1.2fr_1fr]">
@@ -67,9 +39,6 @@ export default async function DashboardPage() {
               <h2 className="text-lg font-semibold text-foreground">
                 Leads recientes
               </h2>
-              <p className="text-sm text-muted">
-                Últimos registros y su estado operativo.
-              </p>
             </div>
             <Link
               className={buttonVariants({ variant: "secondary", size: "sm" })}
@@ -80,10 +49,7 @@ export default async function DashboardPage() {
           </div>
 
           {recentLeads.length === 0 ? (
-            <EmptyState
-              title="No hay leads cargados"
-              description="Cuando ejecutes el seed o conectes Supabase, el dashboard mostrará actividad real."
-            />
+            <EmptyState title="Sin leads" />
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm">
@@ -127,9 +93,6 @@ export default async function DashboardPage() {
               <h2 className="text-lg font-semibold text-foreground">
                 Drafts recientes
               </h2>
-              <p className="text-sm text-muted">
-                Revisión comercial y seguimiento editorial.
-              </p>
             </div>
             <Link
               className={buttonVariants({ variant: "secondary", size: "sm" })}
@@ -140,10 +103,7 @@ export default async function DashboardPage() {
           </div>
 
           {recentDrafts.length === 0 ? (
-            <EmptyState
-              title="No hay drafts todavía"
-              description="Los borradores aparecerán aquí cuando se creen desde un lead."
-            />
+            <EmptyState title="Sin drafts" />
           ) : (
             <div className="space-y-3">
               {recentDrafts.map((draft) => (

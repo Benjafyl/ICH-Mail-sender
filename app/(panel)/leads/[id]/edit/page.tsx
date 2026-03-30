@@ -32,10 +32,7 @@ export default async function EditLeadPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title={`Editar ${lead.business_name}`}
-        description="Actualiza los datos base del lead sin alterar su historial asociado."
-      />
+      <PageHeader title={`Editar ${lead.business_name}`} />
 
       <FeedbackBanner tone="error" message={error} />
 

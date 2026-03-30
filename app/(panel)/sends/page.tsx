@@ -51,10 +51,7 @@ export default async function SendsPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Envíos"
-        description="Registro interno de envíos ya realizados. El MVP no envía correos en vivo todavía; solo deja trazabilidad operativa."
-      />
+      <PageHeader title="Envíos" />
 
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />
@@ -62,13 +59,7 @@ export default async function SendsPage({
       <section className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
         <Card className="p-5">
           <div className="mb-4">
-            <h2 className="text-lg font-semibold text-foreground">
-              Registrar envío
-            </h2>
-            <p className="text-sm text-muted">
-              Usa este módulo para dejar trazado el envío y el estado de
-              respuesta.
-            </p>
+            <h2 className="text-lg font-semibold text-foreground">Registrar envío</h2>
           </div>
           <SendForm
             action={createSendAction}
@@ -80,19 +71,11 @@ export default async function SendsPage({
 
         <Card className="p-5">
           <div className="mb-4">
-            <h2 className="text-lg font-semibold text-foreground">
-              Historial
-            </h2>
-            <p className="text-sm text-muted">
-              Registros previos de envíos hechos por el equipo.
-            </p>
+            <h2 className="text-lg font-semibold text-foreground">Historial</h2>
           </div>
 
           {sendRecords.length === 0 ? (
-            <EmptyState
-              title="Todavía no hay envíos"
-              description="Registra aquí los primeros envíos asociados a drafts aprobados."
-            />
+            <EmptyState title="Sin envíos" />
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm">

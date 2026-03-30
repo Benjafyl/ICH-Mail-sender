@@ -68,7 +68,6 @@ export default async function LeadDetailPage({
     <div className="space-y-6">
       <PageHeader
         title={lead.business_name}
-        description="Detalle operacional del lead: contexto, análisis, drafts y trazabilidad del flujo."
         actionHref={`/leads/${lead.id}/edit`}
         actionLabel="Editar lead"
       />
@@ -96,7 +95,7 @@ export default async function LeadDetailPage({
             ) : null}
             {lead.isOptedOut ? (
               <span className="rounded-full bg-danger-soft px-3 py-1 text-xs font-medium text-[#7a3c32]">
-                Contacto bloqueado por opt-out
+                Opt-out activo
               </span>
             ) : null}
           </div>
@@ -112,14 +111,7 @@ export default async function LeadDetailPage({
       <section className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
         <Card className="p-5">
           <div className="mb-4">
-            <h2 className="text-lg font-semibold text-foreground">
-              Análisis comercial
-            </h2>
-            <p className="text-sm text-muted">
-              Si no hay certeza suficiente, el valor por defecto del servicio es
-              {" "}
-              <code>evaluation</code>.
-            </p>
+            <h2 className="text-lg font-semibold text-foreground">Análisis comercial</h2>
           </div>
 
           {lead.analysis ? (
@@ -146,9 +138,6 @@ export default async function LeadDetailPage({
           <div className="mb-4 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-foreground">Drafts</h2>
-              <p className="text-sm text-muted">
-                Puedes generar un borrador sugerido o cargar uno manual.
-              </p>
             </div>
             <form action={generateDraft}>
               <button
@@ -163,9 +152,7 @@ export default async function LeadDetailPage({
 
           <div className="mb-5 space-y-3">
             {lead.drafts.length === 0 ? (
-              <p className="text-sm text-muted">
-                Este lead todavía no tiene borradores asociados.
-              </p>
+              <p className="text-sm text-muted">Sin drafts registrados.</p>
             ) : (
               lead.drafts.map((draft) => (
                 <div
@@ -260,12 +247,7 @@ export default async function LeadDetailPage({
       <Card className="p-5">
         <div className="mb-4 flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-foreground">
-              Historial de envíos
-            </h2>
-            <p className="text-sm text-muted">
-              Registro operativo de contactos ya enviados.
-            </p>
+            <h2 className="text-lg font-semibold text-foreground">Historial de envíos</h2>
           </div>
           <Link
             className={buttonVariants({ variant: "secondary", size: "sm" })}
@@ -276,9 +258,7 @@ export default async function LeadDetailPage({
         </div>
 
         {lead.sends.length === 0 ? (
-          <p className="text-sm text-muted">
-            Este lead aún no tiene envíos registrados.
-          </p>
+          <p className="text-sm text-muted">Sin envíos registrados.</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full text-left text-sm">

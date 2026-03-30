@@ -32,10 +32,7 @@ export default async function OptOutsPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Opt-outs"
-        description="Lista de contactos que no deben volver a ser abordados por el sistema."
-      />
+      <PageHeader title="Opt-outs" />
 
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />
@@ -46,28 +43,17 @@ export default async function OptOutsPage({
             <h2 className="text-lg font-semibold text-foreground">
               Registrar opt-out
             </h2>
-            <p className="text-sm text-muted">
-              Un email con opt-out queda bloqueado para nuevos contactos.
-            </p>
           </div>
           <OptOutForm action={createOptOutAction} leadOptions={leadOptions} />
         </Card>
 
         <Card className="p-5">
           <div className="mb-4">
-            <h2 className="text-lg font-semibold text-foreground">
-              Lista actual
-            </h2>
-            <p className="text-sm text-muted">
-              Estado consolidado de exclusión comercial.
-            </p>
+            <h2 className="text-lg font-semibold text-foreground">Lista actual</h2>
           </div>
 
           {optOuts.length === 0 ? (
-            <EmptyState
-              title="No hay opt-outs registrados"
-              description="Cuando un contacto solicite no ser abordado nuevamente, regístralo aquí."
-            />
+            <EmptyState title="Sin opt-outs" />
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm">

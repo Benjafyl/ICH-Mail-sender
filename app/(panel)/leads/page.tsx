@@ -3,7 +3,6 @@ import Link from "next/link";
 import { EmptyState } from "@/components/shared/empty-state";
 import { FeedbackBanner } from "@/components/shared/feedback-banner";
 import { PageHeader } from "@/components/shared/page-header";
-import { SetupAlert } from "@/components/shared/setup-alert";
 import { WorkflowBadge } from "@/components/shared/status-badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -48,12 +47,10 @@ export default async function LeadsPage({
     <div className="space-y-6">
       <PageHeader
         title="Leads"
-        description="Listado principal del pipeline comercial con búsqueda, filtros y acceso a detalle operativo."
         actionHref="/leads/new"
         actionLabel="Crear lead"
       />
 
-      <SetupAlert />
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />
 
@@ -102,8 +99,7 @@ export default async function LeadsPage({
       <Card className="p-5">
         {leads.length === 0 ? (
           <EmptyState
-            title="No hay leads con estos filtros"
-            description="Ajusta la búsqueda, ejecuta el seed o crea un lead manual para iniciar el flujo."
+            title="Sin resultados"
             action={
               <Link
                 className={buttonVariants({ variant: "primary" })}
