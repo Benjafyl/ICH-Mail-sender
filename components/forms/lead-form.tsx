@@ -31,7 +31,7 @@ export function LeadForm({
 }: LeadFormProps) {
   return (
     <form action={action} className="grid gap-4 md:grid-cols-2">
-      <Field label="Business name">
+      <Field label="Nombre del negocio">
         <Input
           name="business_name"
           defaultValue={initialValues?.business_name ?? ""}
@@ -39,19 +39,19 @@ export function LeadForm({
         />
       </Field>
 
-      <Field label="Category">
+      <Field label="Categoría">
         <Input name="category" defaultValue={initialValues?.category ?? ""} />
       </Field>
 
-      <Field label="City">
+      <Field label="Ciudad">
         <Input name="city" defaultValue={initialValues?.city ?? ""} />
       </Field>
 
-      <Field label="Commune">
+      <Field label="Comuna">
         <Input name="commune" defaultValue={initialValues?.commune ?? ""} />
       </Field>
 
-      <Field label="Website">
+      <Field label="Sitio web">
         <Input
           name="website"
           defaultValue={initialValues?.website ?? ""}
@@ -59,7 +59,7 @@ export function LeadForm({
         />
       </Field>
 
-      <Field label="Public email">
+      <Field label="Correo público">
         <Input
           name="public_email"
           type="email"
@@ -67,11 +67,11 @@ export function LeadForm({
         />
       </Field>
 
-      <Field label="Phone">
+      <Field label="Teléfono">
         <Input name="phone" defaultValue={initialValues?.phone ?? ""} />
       </Field>
 
-      <Field label="Source URL">
+      <Field label="URL de origen">
         <Input
           name="source_url"
           defaultValue={initialValues?.source_url ?? ""}
@@ -80,7 +80,7 @@ export function LeadForm({
       </Field>
 
       <div className="md:col-span-2">
-        <Field label="Notes">
+        <Field label="Notas">
           <Textarea name="notes" defaultValue={initialValues?.notes ?? ""} />
         </Field>
       </div>

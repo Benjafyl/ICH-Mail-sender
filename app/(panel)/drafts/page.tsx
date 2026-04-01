@@ -30,23 +30,23 @@ export default async function DraftsPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Drafts" />
+      <PageHeader title="Borradores" />
 
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />
 
       <Card className="p-5">
         {drafts.length === 0 ? (
-          <EmptyState title="Sin drafts" />
+          <EmptyState title="Sin borradores" />
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-border text-muted">
                 <tr>
-                  <th className="pb-3 font-medium">Subject</th>
+                  <th className="pb-3 font-medium">Asunto</th>
                   <th className="pb-3 font-medium">Lead</th>
                   <th className="pb-3 font-medium">Estado</th>
-                  <th className="pb-3 font-medium">Updated</th>
+                  <th className="pb-3 font-medium">Actualizado</th>
                   <th className="pb-3 font-medium">Acciones</th>
                 </tr>
               </thead>

@@ -21,6 +21,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { formatConfidence, formatDateTime } from "@/lib/utils";
 import { getLeadById } from "@/services/lead-service";
+import {
+  getLeadWorkflowStatusLabel,
+  getRecommendedServiceLabel,
+} from "@/types/domain";
 
 type Params = Promise<{ id: string }>;
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
@@ -83,9 +87,9 @@ export default async function LeadDetailPage({
             <InfoRow label="Comuna" value={lead.commune ?? "Sin comuna"} />
             <InfoRow label="Email" value={lead.public_email ?? "Sin email"} />
             <InfoRow label="Teléfono" value={lead.phone ?? "Sin teléfono"} />
-            <InfoRow label="Website" value={lead.website ?? "Sin website"} />
-            <InfoRow label="Source" value={lead.source_url ?? "Sin source URL"} />
-            <InfoRow label="Estado" value={lead.workflowStatus} />
+            <InfoRow label="Sitio web" value={lead.website ?? "Sin sitio web"} />
+            <InfoRow label="Origen" value={lead.source_url ?? "Sin URL de origen"} />
+            <InfoRow label="Estado" value={getLeadWorkflowStatusLabel(lead.workflowStatus)} />
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -117,15 +121,15 @@ export default async function LeadDetailPage({
           {lead.analysis ? (
             <div className="mb-5 grid gap-4 rounded-xl border border-border bg-surface-muted p-4 md:grid-cols-3">
               <InfoRow
-                label="Recommended service"
-                value={lead.analysis.recommended_service}
+                label="Servicio recomendado"
+                value={getRecommendedServiceLabel(lead.analysis.recommended_service)}
               />
               <InfoRow
-                label="Confidence"
+                label="Confianza"
                 value={formatConfidence(lead.analysis.confidence_score)}
               />
               <InfoRow
-                label="Signals"
+                label="Señales"
                 value={String(lead.analysis.detected_signals.length)}
               />
             </div>
@@ -137,7 +141,7 @@ export default async function LeadDetailPage({
         <Card className="p-5">
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-foreground">Drafts</h2>
+              <h2 className="text-lg font-semibold text-foreground">Borradores</h2>
             </div>
             <form action={generateDraft}>
               <button
@@ -152,7 +156,7 @@ export default async function LeadDetailPage({
 
           <div className="mb-5 space-y-3">
             {lead.drafts.length === 0 ? (
-              <p className="text-sm text-muted">Sin drafts registrados.</p>
+              <p className="text-sm text-muted">Sin borradores registrados.</p>
             ) : (
               lead.drafts.map((draft) => (
                 <div
@@ -223,12 +227,12 @@ export default async function LeadDetailPage({
           <form action={createManualDraft} className="space-y-4">
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">
-                Subject
+                Asunto
               </label>
               <Input name="subject" required />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Body</label>
+              <label className="text-sm font-medium text-foreground">Contenido</label>
               <Textarea name="body" required />
             </div>
             <div className="flex justify-end">
@@ -264,10 +268,10 @@ export default async function LeadDetailPage({
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-border text-muted">
                 <tr>
-                  <th className="pb-3 font-medium">Sent to</th>
-                  <th className="pb-3 font-medium">Provider</th>
-                  <th className="pb-3 font-medium">Response</th>
-                  <th className="pb-3 font-medium">Sent at</th>
+                  <th className="pb-3 font-medium">Enviado a</th>
+                  <th className="pb-3 font-medium">Proveedor</th>
+                  <th className="pb-3 font-medium">Respuesta</th>
+                  <th className="pb-3 font-medium">Fecha de envío</th>
                 </tr>
               </thead>
               <tbody>

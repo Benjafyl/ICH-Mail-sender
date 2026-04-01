@@ -2,7 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { emailDraftStatuses, type EmailDraft } from "@/types/domain";
+import {
+  emailDraftStatuses,
+  getEmailDraftStatusLabel,
+  type EmailDraft,
+} from "@/types/domain";
 
 interface DraftEditFormProps {
   action: (formData: FormData) => void | Promise<void>;
@@ -30,26 +34,26 @@ export function DraftEditForm({
 }: DraftEditFormProps) {
   return (
     <form action={action} className="space-y-4">
-      <Field label="Subject">
+      <Field label="Asunto">
         <Input name="subject" defaultValue={initialValues.subject} required />
       </Field>
 
-      <Field label="Body">
+      <Field label="Contenido">
         <Textarea name="body" defaultValue={initialValues.body} required />
       </Field>
 
-      <Field label="Status">
+      <Field label="Estado">
         <Select name="status" defaultValue={initialValues.status}>
           {emailDraftStatuses.map((status) => (
             <option key={status} value={status}>
-              {status}
+              {getEmailDraftStatusLabel(status)}
             </option>
           ))}
         </Select>
       </Field>
 
       <div className="flex justify-end">
-        <Button type="submit">Guardar draft</Button>
+        <Button type="submit">Guardar borrador</Button>
       </div>
     </form>
   );

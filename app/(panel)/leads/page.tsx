@@ -84,7 +84,7 @@ export default async function LeadsPage({
             <Select name="status" defaultValue={status}>
               <option value="all">Todos los estados</option>
               <option value="pending_analysis">Pendiente de análisis</option>
-              <option value="draft_pending">Draft pendiente</option>
+              <option value="draft_pending">Borrador pendiente</option>
               <option value="approved">Aprobado</option>
               <option value="sent">Enviado</option>
               <option value="opted_out">Opt-out</option>

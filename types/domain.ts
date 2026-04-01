@@ -48,6 +48,40 @@ export type EmailSendInsert =
 export type OptOut = Database["public"]["Tables"]["opt_outs"]["Row"];
 export type OptOutInsert = Database["public"]["Tables"]["opt_outs"]["Insert"];
 
+export const recommendedServiceLabels: Record<RecommendedService, string> = {
+  maintenance: "Mantenimiento",
+  installation: "Instalación",
+  replacement: "Reemplazo",
+  evaluation: "Evaluación",
+};
+
+export const emailDraftStatusLabels: Record<EmailDraftStatus, string> = {
+  draft: "Borrador",
+  approved: "Aprobado",
+  rejected: "Rechazado",
+  sent: "Enviado",
+};
+
+export const leadWorkflowStatusLabels: Record<LeadWorkflowStatus, string> = {
+  pending_analysis: "Pendiente de análisis",
+  draft_pending: "Borrador pendiente",
+  approved: "Aprobado",
+  sent: "Enviado",
+  opted_out: "Opt-out",
+};
+
+export function getRecommendedServiceLabel(service: RecommendedService) {
+  return recommendedServiceLabels[service];
+}
+
+export function getEmailDraftStatusLabel(status: EmailDraftStatus) {
+  return emailDraftStatusLabels[status];
+}
+
+export function getLeadWorkflowStatusLabel(status: LeadWorkflowStatus) {
+  return leadWorkflowStatusLabels[status];
+}
+
 export interface LeadRecordBase extends Lead {
   analysis: LeadAnalysis | null;
   drafts: EmailDraft[];

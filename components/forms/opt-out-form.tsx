@@ -26,7 +26,7 @@ function Field({
 export function OptOutForm({ action, leadOptions }: OptOutFormProps) {
   return (
     <form action={action} className="grid gap-4 md:grid-cols-2">
-      <Field label="Lead (optional)">
+      <Field label="Lead (opcional)">
         <Select name="lead_id" defaultValue="">
           <option value="">Sin lead asociado</option>
           {leadOptions.map((lead) => (
@@ -42,12 +42,12 @@ export function OptOutForm({ action, leadOptions }: OptOutFormProps) {
       </Field>
 
       <div className="md:col-span-2">
-        <Field label="Reason">
-          <Textarea
-            name="reason"
-            defaultValue="Requested no further commercial contact."
-          />
-        </Field>
+      <Field label="Motivo">
+        <Textarea
+          name="reason"
+          defaultValue="Solicitó no recibir más contacto comercial."
+        />
+      </Field>
       </div>
 
       <div className="md:col-span-2 flex justify-end">

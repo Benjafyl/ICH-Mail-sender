@@ -48,7 +48,7 @@ export function SendForm({
         </Select>
       </Field>
 
-      <Field label="Draft">
+      <Field label="Borrador">
         <Select
           name="email_draft_id"
           defaultValue={defaults?.draftId ?? ""}
@@ -63,7 +63,7 @@ export function SendForm({
         </Select>
       </Field>
 
-      <Field label="Sent to">
+      <Field label="Enviado a">
         <Input
           name="sent_to"
           type="email"
@@ -72,11 +72,11 @@ export function SendForm({
         />
       </Field>
 
-      <Field label="Provider">
+      <Field label="Proveedor">
         <Input name="provider" defaultValue="manual" required />
       </Field>
 
-      <Field label="Sent at">
+      <Field label="Fecha de envío">
         <Input
           name="sent_at"
           type="datetime-local"
@@ -85,16 +85,16 @@ export function SendForm({
         />
       </Field>
 
-      <Field label="Response status">
+      <Field label="Estado de respuesta">
         <Input
           name="response_status"
           defaultValue="delivered"
-          placeholder="delivered, pending, bounced..."
+          placeholder="entregado, pendiente, rebotado..."
         />
       </Field>
 
       <div className="md:col-span-2">
-        <Field label="Notes">
+        <Field label="Notas">
           <Textarea name="notes" />
         </Field>
       </div>

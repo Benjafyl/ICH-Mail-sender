@@ -41,8 +41,8 @@
   --color-warning-soft: var(--warning-soft);
   --color-success-soft: var(--success-soft);
   --color-muted: var(--muted);
-  --font-sans: var(--font-plex-sans);
-  --font-mono: var(--font-plex-mono);
+  --font-sans: "Aptos", "Segoe UI Variable", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-mono: "Consolas", "SFMono-Regular", "Cascadia Code", monospace;
 }
 
 * {
@@ -58,7 +58,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plex-sans), sans-serif;
+  font-family: var(--font-sans);
 }
 
 a {

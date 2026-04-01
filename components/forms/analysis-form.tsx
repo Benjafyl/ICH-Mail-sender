@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  getRecommendedServiceLabel,
   recommendedServices,
   type LeadAnalysis,
 } from "@/types/domain";
@@ -30,20 +31,20 @@ function Field({
 export function AnalysisForm({ action, initialValues }: AnalysisFormProps) {
   return (
     <form action={action} className="grid gap-4 md:grid-cols-2">
-      <Field label="Recommended service">
+      <Field label="Servicio recomendado">
         <Select
           name="recommended_service"
           defaultValue={initialValues?.recommended_service ?? "evaluation"}
         >
           {recommendedServices.map((service) => (
             <option key={service} value={service}>
-              {service}
+              {getRecommendedServiceLabel(service)}
             </option>
           ))}
         </Select>
       </Field>
 
-      <Field label="Confidence score">
+      <Field label="Nivel de confianza">
         <Input
           name="confidence_score"
           type="number"
@@ -56,7 +57,7 @@ export function AnalysisForm({ action, initialValues }: AnalysisFormProps) {
       </Field>
 
       <div className="md:col-span-2">
-        <Field label="Reasoning">
+        <Field label="Fundamento">
           <Textarea
             name="reasoning"
             defaultValue={initialValues?.reasoning ?? ""}
@@ -66,7 +67,7 @@ export function AnalysisForm({ action, initialValues }: AnalysisFormProps) {
       </div>
 
       <div className="md:col-span-2">
-        <Field label="Detected signals">
+        <Field label="Señales detectadas">
           <Textarea
             name="detected_signals"
             defaultValue={initialValues?.detected_signals?.join("\n") ?? ""}

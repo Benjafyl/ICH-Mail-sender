@@ -40,7 +40,7 @@ export default async function DraftDetailPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Editar draft" />
+      <PageHeader title="Editar borrador" />
 
       <FeedbackBanner tone="success" message={success} />
       <FeedbackBanner tone="error" message={error} />

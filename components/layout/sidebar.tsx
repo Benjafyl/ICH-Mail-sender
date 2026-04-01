@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const navigation = [
   { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
   { href: "/leads", label: "Leads", icon: Users },
-  { href: "/drafts", label: "Drafts", icon: FilePenLine },
+  { href: "/drafts", label: "Borradores", icon: FilePenLine },
   { href: "/sends", label: "Envíos", icon: Send },
   { href: "/opt-outs", label: "Opt-outs", icon: Ban },
 ];

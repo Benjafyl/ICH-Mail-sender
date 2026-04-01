@@ -61,8 +61,8 @@ export default async function OptOutsPage({
                   <tr>
                     <th className="pb-3 font-medium">Email</th>
                     <th className="pb-3 font-medium">Lead</th>
-                    <th className="pb-3 font-medium">Reason</th>
-                    <th className="pb-3 font-medium">Created</th>
+                    <th className="pb-3 font-medium">Motivo</th>
+                    <th className="pb-3 font-medium">Creado</th>
                   </tr>
                 </thead>
                 <tbody>

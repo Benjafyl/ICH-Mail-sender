@@ -26,7 +26,7 @@ export default async function DashboardPage() {
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         <MetricCard label="Total leads" value={metrics.totalLeads} />
         <MetricCard label="Pendientes de análisis" value={metrics.pendingAnalysis} />
-        <MetricCard label="Drafts pendientes" value={metrics.draftsPending} />
+        <MetricCard label="Borradores pendientes" value={metrics.draftsPending} />
         <MetricCard label="Aprobados" value={metrics.approved} />
         <MetricCard label="Enviados" value={metrics.sent} />
         <MetricCard label="Opt-outs" value={metrics.optOuts} />
@@ -91,19 +91,19 @@ export default async function DashboardPage() {
           <div className="mb-4 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-foreground">
-                Drafts recientes
+                Borradores recientes
               </h2>
             </div>
             <Link
               className={buttonVariants({ variant: "secondary", size: "sm" })}
               href="/drafts"
             >
-              Ver drafts
+              Ver borradores
             </Link>
           </div>
 
           {recentDrafts.length === 0 ? (
-            <EmptyState title="Sin drafts" />
+            <EmptyState title="Sin borradores" />
           ) : (
             <div className="space-y-3">
               {recentDrafts.map((draft) => (

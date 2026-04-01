@@ -82,10 +82,10 @@ export default async function SendsPage({
                 <thead className="border-b border-border text-muted">
                   <tr>
                     <th className="pb-3 font-medium">Lead</th>
-                    <th className="pb-3 font-medium">Sent to</th>
-                    <th className="pb-3 font-medium">Provider</th>
-                    <th className="pb-3 font-medium">Response</th>
-                    <th className="pb-3 font-medium">Sent at</th>
+                    <th className="pb-3 font-medium">Enviado a</th>
+                    <th className="pb-3 font-medium">Proveedor</th>
+                    <th className="pb-3 font-medium">Respuesta</th>
+                    <th className="pb-3 font-medium">Fecha de envío</th>
                   </tr>
                 </thead>
                 <tbody>

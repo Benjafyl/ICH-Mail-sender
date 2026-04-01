@@ -4,15 +4,20 @@ import type {
   LeadWorkflowStatus,
   RecommendedService,
 } from "@/types/domain";
+import {
+  getEmailDraftStatusLabel,
+  getLeadWorkflowStatusLabel,
+  getRecommendedServiceLabel,
+} from "@/types/domain";
 
 const workflowMap: Record<
   LeadWorkflowStatus,
   { label: string; variant: React.ComponentProps<typeof Badge>["variant"] }
 > = {
-  pending_analysis: { label: "Pendiente de análisis", variant: "warning" },
-  draft_pending: { label: "Draft pendiente", variant: "info" },
-  approved: { label: "Aprobado", variant: "success" },
-  sent: { label: "Enviado", variant: "neutral" },
+  pending_analysis: { label: getLeadWorkflowStatusLabel("pending_analysis"), variant: "warning" },
+  draft_pending: { label: getLeadWorkflowStatusLabel("draft_pending"), variant: "info" },
+  approved: { label: getLeadWorkflowStatusLabel("approved"), variant: "success" },
+  sent: { label: getLeadWorkflowStatusLabel("sent"), variant: "neutral" },
   opted_out: { label: "Opt-out", variant: "danger" },
 };
 
@@ -20,17 +25,10 @@ const draftMap: Record<
   EmailDraftStatus,
   { label: string; variant: React.ComponentProps<typeof Badge>["variant"] }
 > = {
-  draft: { label: "Draft", variant: "info" },
-  approved: { label: "Approved", variant: "success" },
-  rejected: { label: "Rejected", variant: "danger" },
-  sent: { label: "Sent", variant: "neutral" },
-};
-
-const serviceMap: Record<RecommendedService, string> = {
-  maintenance: "Maintenance",
-  installation: "Installation",
-  replacement: "Replacement",
-  evaluation: "Evaluation",
+  draft: { label: getEmailDraftStatusLabel("draft"), variant: "info" },
+  approved: { label: getEmailDraftStatusLabel("approved"), variant: "success" },
+  rejected: { label: getEmailDraftStatusLabel("rejected"), variant: "danger" },
+  sent: { label: getEmailDraftStatusLabel("sent"), variant: "neutral" },
 };
 
 export function WorkflowBadge({ status }: { status: LeadWorkflowStatus }) {
@@ -44,5 +42,5 @@ export function DraftStatusBadge({ status }: { status: EmailDraftStatus }) {
 }
 
 export function ServiceBadge({ service }: { service: RecommendedService }) {
-  return <Badge variant="neutral">{serviceMap[service]}</Badge>;
+  return <Badge variant="neutral">{getRecommendedServiceLabel(service)}</Badge>;
 }
